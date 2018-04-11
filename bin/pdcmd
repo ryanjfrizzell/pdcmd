@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+require 'pdcmd'
+require 'mixlib/cli'
+
+module PDCmd
+  class CLI
+    include Mixlib::CLI
+    option :verbose,
+      short: "-v",
+      long: "--verbose",
+      description: "verboseify the output",
+      boolean: true
+
+    option :message,
+      short: "-m MESSAGE",
+      long: "--message MESSAGE",
+      description: "the message you'd like to send up to pd",
+      required: true
+
+    option :sk,
+      short: "-k SK",
+      long: "--key SK",
+      description: "your pagerduty service key",
+      required: true
+
+    option :help,
+      short: "-h",
+      long: "--help",
+      description: "Show this message",
+      on: :tail,
+      boolean: true,
+      show_options: true,
+      exit: 0
+  end
+end
+
+cli = PDCmd::CLI.new
+cli.parse_options
+# for debug
+puts cli.config[:sk] if cli.config[:verbose]
+puts cli.config[:message] if cli.config[:verbose]
+
+pd = PDCmd::Notify.new(cli.config)
+pd.alert

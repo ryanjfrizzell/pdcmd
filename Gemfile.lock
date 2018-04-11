@@ -1,0 +1,28 @@
+PATH
+  remote: .
+  specs:
+    pdcmd (0.1.0)
+      mixlib-cli (~> 1.7)
+      pagerduty (~> 2.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    json (2.1.0)
+    minitest (5.11.3)
+    mixlib-cli (1.7.0)
+    pagerduty (2.1.1)
+      json (>= 1.7.7)
+    rake (10.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.16)
+  minitest (~> 5.0)
+  pdcmd!
+  rake (~> 10.0)
+
+BUNDLED WITH
+   1.16.1
