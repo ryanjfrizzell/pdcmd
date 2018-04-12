@@ -1,6 +1,6 @@
 # Pdcmd
 
-* simple gem that wraps a few things and make a little command line utility
+* simple gem that wraps the pagerduty gem, makes it pretty easy to send simple alerts
 * useful for things like one of notifications via monit exec
 * example monit config to alert on disk usage: 
 
